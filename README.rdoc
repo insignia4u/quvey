@@ -1,0 +1,8 @@
+== Quvey
+App for get feedback about a talk
+
+== Dependencies
+
+== Bootstrap
+
+== Testing
