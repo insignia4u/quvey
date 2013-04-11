@@ -2,7 +2,9 @@
 App for get feedback about a talk
 
 == Dependencies
+Just run bundle install.
 
 == Bootstrap
 
 == Testing
+We're using a Rspec 2 stack
