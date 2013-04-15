@@ -27,4 +27,5 @@ gem 'sqlite3',            '1.3.7'
 gem 'jquery-rails',       '2.2.1'
 gem 'decent_exposure',    '2.1.0'
 gem 'strong_parameters',  '0.2.0'
+gem 'omniauth-facebook',  '1.4.1'
 
