@@ -23,4 +23,7 @@ ActiveRecord::Schema.define(:version => 20130415043804) do
     t.datetime "updated_at",       :null => false
   end
 
+  add_index "users", ["oauth_token"], :name => "index_users_on_oauth_token", :unique => true
+  add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid", :unique => true
+
 end
