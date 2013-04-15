@@ -210,7 +210,7 @@ DEPENDENCIES
   fuubar (= 1.1.0)
   jquery-rails (= 2.2.1)
   launchy (= 2.2.0)
-  omniauth-facebook
+  omniauth-facebook (= 1.4.1)
   rails (= 3.2.13)
   rspec-rails (= 2.13.0)
   sass-rails (~> 3.2.3)
