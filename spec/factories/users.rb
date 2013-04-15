@@ -7,5 +7,10 @@ FactoryGirl.define do
     name "MyString"
     oauth_token "MyString"
     oauth_expires_at "2013-04-15 01:38:04"
+
+    trait :from_facebook do
+    end
   end
+
+
 end
