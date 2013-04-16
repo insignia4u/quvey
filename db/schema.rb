@@ -34,4 +34,6 @@ ActiveRecord::Schema.define(:version => 20130416144956) do
     t.string   "email"
   end
 
+  add_index "survey", ["user_id"], :name => "index_survey_on_user_id", :unique => true
+
 end
