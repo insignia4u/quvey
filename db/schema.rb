@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20130416144956) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "surveys", ["expired_at"], :name => "index_surveys_on_expired_at"
+  add_index "surveys", ["slug"], :name => "index_surveys_on_slug", :unique => true
+  add_index "surveys", ["user_id"], :name => "index_surveys_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -34,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130416144956) do
     t.string   "email"
   end
 
-  add_index "survey", ["user_id"], :name => "index_survey_on_user_id", :unique => true
+  add_index "users", ["oauth_token"], :name => "index_users_on_oauth_token", :unique => true
+  add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid", :unique => true
 
 end

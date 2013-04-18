@@ -1,6 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :survey do
+    user
+
+    name       { Faker::Lorem.words }
+    expired_at { 3.days.from_now }
   end
 end

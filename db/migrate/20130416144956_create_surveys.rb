@@ -9,5 +9,9 @@ class CreateSurveys < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :surveys, :user_id
+    add_index :surveys, :expired_at
+    add_index :surveys, :slug, :unique => true
   end
 end
