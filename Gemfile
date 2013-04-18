@@ -8,15 +8,18 @@ group :assets do
 end
 
 group :development, :test do
-  gem "rspec-rails",        '2.13.0'
-  gem "factory_girl_rails", '4.2.1'
+  gem 'rspec-rails',        '2.13.0'
+  gem 'factory_girl_rails', '4.2.1'
+  gem 'rb-fsevent',         '0.9.3', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard',              '1.7.0'
+  gem 'guard-rspec',        '2.5.3'
 end
 
 group :test do
-  gem "simplecov",          '0.7.1',    :require => false
-  gem "shoulda-matchers",   '1.4.2'
-  gem "database_cleaner",   '0.9.1'
-  gem "capybara",           '2.0.2'
+  gem 'simplecov',          '0.7.1',    :require => false
+  gem 'shoulda-matchers',   '1.4.2'
+  gem 'database_cleaner',   '0.9.1'
+  gem 'capybara',           '2.0.2'
   gem 'capybara-email',     '2.0.2'
   gem 'fuubar',             '1.1.0'
   gem 'launchy',            '2.2.0'
@@ -29,3 +32,6 @@ gem 'decent_exposure',      '2.1.0'
 gem 'strong_parameters',    '0.2.0'
 gem 'omniauth-facebook',    '1.4.1'
 gem 'faker',                '1.1.2'
+gem 'micromachine',         '1.0.4'
+gem 'friendly_id',          '4.0.9'
+gem 'default_value_for',    '2.0.2'
