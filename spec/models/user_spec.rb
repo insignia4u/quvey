@@ -19,6 +19,10 @@ describe User do
     @auth = oauth_hash
   end
 
+  describe "Relations" do
+    it { should have_many(:surveys) }
+  end
+
   describe "#from_omniauth" do
     context "for unexisting users" do
       it "creates a new user with the information obtained from oauth" do
@@ -62,6 +66,12 @@ describe User do
         User.count.should == 1
         expect{ User.from_omniauth(@auth) }.not_to change{ User.count}.by(1)
       end
+    end
+  end
+
+  describe "Factory" do
+    it "creates a valid user" do
+      expect{create(:user)}.to change{User.count}.by(1)
     end
   end
 end
