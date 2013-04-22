@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416144956) do
+ActiveRecord::Schema.define(:version => 20130422051926) do
+
+  create_table "question_possible_values", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "title"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "question_possible_values", ["question_id"], :name => "index_question_possible_values_on_question_id"
+  add_index "question_possible_values", ["title"], :name => "index_question_possible_values_on_title", :unique => true
+
+  create_table "question_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "survey_id"
+    t.integer  "question_type_id"
+    t.string   "title"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "questions", ["question_type_id"], :name => "index_questions_on_question_type_id"
+  add_index "questions", ["survey_id"], :name => "index_questions_on_survey_id"
+  add_index "questions", ["title"], :name => "index_questions_on_title", :unique => true
 
   create_table "surveys", :force => true do |t|
     t.integer  "user_id"
@@ -35,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20130416144956) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "email"
   end
 
   add_index "users", ["oauth_token"], :name => "index_users_on_oauth_token", :unique => true
