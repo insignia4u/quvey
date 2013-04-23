@@ -8,6 +8,6 @@ class CreateQuestionPossibleValues < ActiveRecord::Migration
     end
 
     add_index :question_possible_values, :question_id
-    add_index :question_possible_values, :title, :unique => true
+    add_index :question_possible_values, [question_id, :title], :unique => true
   end
 end

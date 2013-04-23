@@ -10,6 +10,6 @@ class CreateQuestions < ActiveRecord::Migration
 
     add_index :questions, :survey_id
     add_index :questions, :question_type_id
-    add_index :questions, :title, :unique => true
+    add_index :questions, [:survey_id, :title], :unique => true
   end
 end
