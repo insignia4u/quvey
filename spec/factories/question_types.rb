@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :question_type do
-    name 'Bar'
+    sequence(:name) { |n| "Name#{n}" }
   end
 end

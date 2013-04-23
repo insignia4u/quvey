@@ -3,6 +3,6 @@ FactoryGirl.define do
     survey
     question_type
 
-    title 'Foo'
+    sequence(:title) { |n| "Title#{n}" }
   end
 end
