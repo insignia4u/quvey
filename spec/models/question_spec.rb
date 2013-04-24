@@ -6,6 +6,10 @@ describe Question do
     it { should validate_presence_of(:survey) }
     it { should validate_presence_of(:question_type) }
     it { should validate_uniqueness_of(:title).scoped_to(:survey_id) }
+
+    it "should requires question invalid" do
+      expect(subject).to_not be_valid
+    end
   end
 
   describe "Factory" do
