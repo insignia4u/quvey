@@ -11,6 +11,18 @@ describe Question do
       expect(subject).to_not be_valid
     end
   end
+  
+  describe "should requires question_possible_value presence" do
+    context "With option multiple-choise" do
+      before(:each) do
+        question = FactoryGirl.build(:question).question_type.name = "multiple-choise" 
+      end
+      
+      it "Should be a invalid question" do
+        expect(:question).to have_at_least(1).errors_on(:base)
+      end
+    end
+  end
 
   describe "Factory" do
     it "creates a valid question" do
