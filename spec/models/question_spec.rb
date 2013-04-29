@@ -5,6 +5,7 @@ describe Question do
   describe "Relations" do
     it { should belong_to(:survey) }
     it { should belong_to(:question_type) }
+    it { should have_many(:question_possible_values) }
   end
 
   describe "Validations" do
@@ -18,25 +19,42 @@ describe Question do
     end
   end
 
-  describe "should require the presence of question_possible_value" do
-    context "With option multiple-choise" do
+  describe "possible values validation" do
+    let!(:t_multiple) { create(:question_type, name: 'multiple-choise') }
+    let!(:t_options)  { create(:question_type, name: 'options') }
+
+    context "for questions with multiple choise type" do
       before(:each) do
-        @question = FactoryGirl.create(:question).question_type.name = 'multiple-choise'
+        @question = build(:question, question_type: t_multiple)
       end
 
-      it "Should be a invalid question" do
+      it "needs to have possible values" do
         expect(@question).to have_at_least(1).errors_on(:base)
      end
     end
 
-    context "With option options" do
+    context "for questions with options type" do
       before(:each) do
-        @question = FactoryGirl.create(:question).question_type.name = 'options'
+        @question = build(:question, question_type: t_multiple)
       end
 
-      it "Should be a invalid question" do
+      it "needs to have possible values" do
         expect(@question).to have_at_least(1).errors_on(:base)
      end
+    end
+
+    context "valid state" do
+      before(:each) do
+        @question = build(:question, question_type: t_multiple)
+        4.times do |i|
+          pv       = @question.question_possible_values.build
+          pv.title = "Title ##{i}"
+        end
+      end
+
+      it "is valid" do
+        expect(@question).to be_valid
+      end
     end
   end
 
