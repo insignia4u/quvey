@@ -40,3 +40,10 @@ def facebook_auth_data(valid = true)
 
   auth
 end
+
+def login_with_facebook
+  OmniAuth.config.mock_auth[:facebook] = facebook_auth_data
+  visit root_path
+  click_link "Sign in with Facebook"
+  @user = User.last
+end

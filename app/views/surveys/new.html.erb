@@ -1,0 +1,15 @@
+<h1>New Survey</h1>
+
+<%= form_for @survey do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :expired_at %>
+    <%= f.date_select :expired_at %>
+  </p>
+
+  <%= f.submit "Create Survey" %>
+<% end %>

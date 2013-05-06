@@ -1,4 +1,5 @@
 class Survey < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
   extend FriendlyId
   include ActsAsStateMachine
 

@@ -8,11 +8,17 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'sqlite3',            '1.3.7'
   gem 'rspec-rails',        '2.13.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'rb-fsevent',         '0.9.3', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard',              '1.7.0'
   gem 'guard-rspec',        '2.5.3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'unicorn'
 end
 
 group :test do
@@ -26,7 +32,6 @@ group :test do
 end
 
 gem 'rails',                '3.2.13'
-gem 'sqlite3',              '1.3.7'
 gem 'jquery-rails',         '2.2.1'
 gem 'decent_exposure',      '2.1.0'
 gem 'strong_parameters',    '0.2.0'
