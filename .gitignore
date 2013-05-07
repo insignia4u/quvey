@@ -6,3 +6,6 @@
 /config/database.yml
 /coverage
 rails_best_practices_output.html
+
+# Ignore application configuration
+/config/application.yml
