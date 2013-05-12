@@ -4,12 +4,16 @@ class Survey < ActiveRecord::Base
   include ActsAsStateMachine
 
   belongs_to :user
+  has_many   :questions, :dependent => :destroy
 
   validates :user, presence: true
   validates :name, presence: true, uniqueness: { scope: :user_id }
   validate  :expired_at_is_in_the_future
 
   friendly_id :name, use: :slugged
+
+  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:content].blank? },
+    :allow_destroy => true
 
 protected
   def expired_at_is_in_the_future

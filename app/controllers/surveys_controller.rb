@@ -3,6 +3,10 @@ class SurveysController < ApplicationController
 
   def new
     @survey = current_user.surveys.build
+    #3.times do
+      question = @survey.questions.build
+      question.question_possible_values.build
+    #end
   end
 
   def create
@@ -18,6 +22,7 @@ class SurveysController < ApplicationController
 
 protected
   def survey_params
-    params.require(:survey).permit(:name, :expired_at => [])
+    params.require(:survey).permit(:name, :expired_at => [], 
+      questions_attributes: [:title], question_possible_values_attributes: [:title])
   end
 end
