@@ -12,7 +12,7 @@ class Survey < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:content].blank? },
+  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:title].blank? },
     :allow_destroy => true
 
 protected

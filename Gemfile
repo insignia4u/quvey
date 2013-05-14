@@ -34,7 +34,7 @@ end
 gem 'rails',                '3.2.13'
 gem 'jquery-rails',         '2.2.1'
 gem 'decent_exposure',      '2.1.0'
-gem 'strong_parameters',    '0.2.0'
+gem 'strong_parameters',    '0.2.1'
 gem 'omniauth-facebook',    '1.4.1'
 gem 'faker',                '1.1.2'
 gem 'micromachine',         '1.0.4'
