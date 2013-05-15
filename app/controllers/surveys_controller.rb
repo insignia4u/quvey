@@ -3,6 +3,7 @@ class SurveysController < ApplicationController
 
   def new
     @survey = current_user.surveys.build
+    question = @survey.questions.build
   end
 
   def create
@@ -11,13 +12,14 @@ class SurveysController < ApplicationController
       flash[:notice] = 'Survey created successfully!'
       redirect_to root_path
     else
-      flash[:error] = 'Error creating the survey'
+      flash[:error] = 'Failure creating the survey'
       render :new
     end
   end
 
 protected
   def survey_params
-    params.require(:survey).permit(:name, :expired_at => [])
+    params.require(:survey).permit(:name, :expired_at, 
+      :questions_attributes => [:question_type_id, :title] )
   end
 end
