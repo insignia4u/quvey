@@ -19,8 +19,8 @@ class SurveysController < ApplicationController
 
 protected
   def survey_params
-    params.require(:survey).permit(:name, :"expired_at(1i)", :"expired_at(1i)", 
-      :"expired_at(1i)", :questions_attributes => [:question_type_id, :title] )
+    params.require(:survey).permit(:name, "expired_at(1i)", "expired_at(2i)", 
+      "expired_at(3i)", :questions_attributes => [:question_type_id, :title] )
   end
 
   # def expired_at
