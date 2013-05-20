@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130422051926) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "state"
-    t.datetime "expired_at"
+    t.string   "expired_at"
     t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130422051926) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "email"
   end
 
   add_index "users", ["oauth_token"], :name => "index_users_on_oauth_token", :unique => true
