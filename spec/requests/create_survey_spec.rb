@@ -22,7 +22,6 @@ feature "User create new survey" do
 
     current_user = User.last
     last_survey  = Survey.last
-    save_and_open_page
     expect(current_path).to eql("/")
     expect(Survey.where(slug: "my-first-survey")).to exist
     expect(last_survey.questions.where(title: "My First Question")).to exist
