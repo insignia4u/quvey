@@ -1,0 +1,8 @@
+<div class="fields">
+  <p>
+    <%= f.label     :title, "Question" %>
+    <%= link_to_remove_fields "remove", f %><br />
+    <%= f.text_area :title, :rows => 3 %><br/>
+    <%= f.hidden_field :question_type_id, :value => QuestionType.first.id %>
+  </p>
+</div>

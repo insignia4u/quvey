@@ -4,7 +4,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.belongs_to  :user
       t.string      :name
       t.string      :state
-      t.string      :expired_at
+      t.datetime    :expired_at
       t.string      :slug
 
       t.timestamps
