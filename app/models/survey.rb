@@ -15,6 +15,12 @@ class Survey < ActiveRecord::Base
   accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:title].blank? },
     :allow_destroy => true
 
+  def self.build_survey(current_user)
+    @survey = current_user.surveys.build
+    @question = @survey.questions.build
+    @survey
+  end
+
 protected
   def expired_at_is_in_the_future
     if expired_at.present? && expired_at < Time.now
